@@ -1,0 +1,13 @@
+{
+  "name": "積立FIREシミュレーター",
+  "short_name": "積立FIRE",
+  "description": "トリニティ・スタディの4%ルールから、リタイアに必要な資産額と毎月の積立額を計算するシミュレーター",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef0ea",
+  "theme_color": "#8a6a24",
+  "icons": [
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
