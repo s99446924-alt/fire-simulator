@@ -737,6 +737,8 @@
     return niceFraction * Math.pow(10, exponent);
   }
 
+  var STORAGE_KEY = 'fireSimState';
+
   var state = {
     annualExpenses: 3000000,
     currentSavings: 1000000,
@@ -1157,7 +1159,28 @@
 
     renderChart(plan.schedule, plan.targetAmount, state.stopAge, state.withdrawalAge, plan.depletionAge, state.depletionAge);
     renderTable(plan.schedule, plan.targetAmount);
+
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
   }
+
+  (function restoreState() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var saved = JSON.parse(raw);
+      Object.keys(state).forEach(function (k) {
+        if (typeof saved[k] === 'number' && isFinite(saved[k])) state[k] = saved[k];
+      });
+    } catch (e) {}
+
+    els.annualExpenses.value = state.annualExpenses;
+    els.annualExpensesNum.value = state.annualExpenses;
+    els.currentSavings.value = state.currentSavings;
+    els.currentSavingsNum.value = state.currentSavings;
+    els.expectedReturn.value = state.expectedReturn;
+    els.expectedReturnNum.value = state.expectedReturn;
+    syncAgeInputs();
+  })();
 
   render();
 })();
