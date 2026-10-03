@@ -1,7 +1,7 @@
 {
-  "name": "積立FIREシミュレーター",
-  "short_name": "積立FIRE",
-  "description": "トリニティ・スタディの4%ルールから、リタイアに必要な資産額と毎月の積立額を計算するシミュレーター",
+  "name": "DIE WITH ZEROシミュレーター",
+  "short_name": "DIE WITH ZERO",
+  "description": "「資産を使い切る年齢」から逆算して、リタイアに必要な資産額と毎月の積立額を計算するシミュレーター",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
